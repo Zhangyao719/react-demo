@@ -1,5 +1,5 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
 
 // 创建元素
 // 参数1. 标签名
@@ -9,7 +9,7 @@ const element = React.createElement(
     'h1',
     { id: 'box', className: 'haha' },
     'context'
-);
+)
 console.log('🚀 → element', element)
 
 // 渲染react元素
