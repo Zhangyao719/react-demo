@@ -10,36 +10,50 @@ function Count() {
         console.log('依赖更新, 执行副作用')
     }, [count])
 
-    // // 指定依赖
-    // const [position, setPosition] = useState({
-    //     pageX: 0,
-    //     pageY: 0,
-    // })
-    // useEffect(() => {
-    //     window.addEventListener('mousemove', () => {
+    // 依赖[] + 清理副作用
+    const [position, setPosition] = useState({
+        pageX: 0,
+        pageY: 0
+    })
+    const handlePosition = ({ pageX, pageY }) => {
+        setPosition({ pageX, pageY })
+    }
+    useEffect(() => {
+        console.log('只在第一次执行副作用，注册 mousemove 事件')
+        window.addEventListener('mousemove', handlePosition)
 
-    //     })
-    //     console.log('')
-
-    //     return () => {
-
-    //     }
-    // }, [])
+        return () => {
+            window.removeEventListener('mousemove', handlePosition)
+            console.log('清理副作用')
+        }
+    }, [])
 
     return (
         <div>
             <span>点击次数：{count}</span>
             <br />
             <button onClick={setCount.bind(this, count + 1)}>+1</button>
-            {/* <br />
-            <span>名字：{info.name}</span>
             <br />
-            <button onClick={motifyName}>改名</button> */}
+            <span>鼠标X：{position.pageX}</span>
+            <br />
+            <span>鼠标Y：{position.pageY}</span>
         </div>
     )
 }
 
-ReactDOM.render(<Count />, document.getElementById('root'))
+function App() {
+    const [visible, setVisible] = useState(true)
+    return (
+        <>
+            {visible ? <Count /> : null}
+            <button onClick={setVisible.bind(this, !visible)}>
+                点击销毁 Count 组件，触发清理操作
+            </button>
+        </>
+    )
+}
+
+ReactDOM.render(<App />, document.getElementById('root'))
 
 /*
  * - useEffect: 进行出渲染外的其他操作
