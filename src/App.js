@@ -1,25 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import '@/assets/style/base.scss'
+import './App.css'
+import ReduxDemo from './redux/demo'
+import Store from './redux/store'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const state = Store.getState()
+    return (
+        <div className="App">
+            <h1>我是APP根组件</h1>
+            <div style={{ marginBottom: 20 }}>redux 现在还有 {state}</div>
+            <ReduxDemo />
+        </div>
+    )
 }
 
-export default App;
+export default App
