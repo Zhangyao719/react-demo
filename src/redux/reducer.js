@@ -6,6 +6,7 @@
 
 export const initialState = 100
 export default function reducer(state = initialState, action) {
+    console.log(action)
     // 处理各种各样的action
     switch (action.type) {
         case 'addOne':
