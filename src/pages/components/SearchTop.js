@@ -6,6 +6,7 @@ export default function SearchTop() {
         { id: 2, label: '欧美排行' },
         { id: 3, label: '抖音排行' }
     ])
+
     return (
         <div>
             <ul>
