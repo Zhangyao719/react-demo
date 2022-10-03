@@ -6,17 +6,17 @@ import { addOne, addMore, subOne, subMore } from '../redux/action'
 export default function Son() {
     const dispatch = useDispatch()
     const money = useSelector(state => state.moneyReducer)
-    console.log('click1', money)
+    // console.log('click1', money)
 
     const handleMonkey = async action => {
         dispatch(action)
 
         // ! 注意: 调用完 dispatch 后, 不会立即更新 state。
         // ! 所以此时 获取 state, 还是改变之前的数据
-        console.log('click2', money)
+        // console.log('click2', money)
     }
     useEffect(() => {
-        console.log('watch', money)
+        // console.log('watch', money)
     }, [money])
     return (
         <>

@@ -10,7 +10,7 @@ import * as TYPES from './constants'
 
 const initialMoney = 100
 function moneyReducer(state = initialMoney, action) {
-    console.log(action)
+    // console.log(action)
     // 处理各种各样的action
     switch (action.type) {
         case TYPES.ADD_ONE:
