@@ -6,19 +6,20 @@
  */
 
 import { combineReducers } from 'redux'
+import * as TYPES from './constants'
 
 const initialMoney = 100
 function moneyReducer(state = initialMoney, action) {
     console.log(action)
     // 处理各种各样的action
     switch (action.type) {
-        case 'addOne':
+        case TYPES.ADD_ONE:
             return state + 1
-        case 'subOne':
+        case TYPES.SUB_ONE:
             return state - 1
-        case 'addMore':
+        case TYPES.ADD_MORE:
             return state + action.payload
-        case 'subMore':
+        case TYPES.SUB_MORE:
             return state - action.payload
         default:
             // 很重要 第一次为了初始化 state 会执行一次, 此时不满足任何场景
@@ -31,7 +32,7 @@ const initialUser = {
     age: ''
 }
 function userReducer(state = initialUser, action) {
-    if (action.type === 'name') {
+    if (action.type === TYPES.SET_NAME) {
         return {
             ...state,
             name: action.payload

@@ -1,6 +1,8 @@
-// 相当于发布者
-export const addOne = payload => ({ type: 'addOne', payload })
-export const subOne = payload => ({ type: 'subOne', payload })
-export const addMore = payload => ({ type: 'addMore', payload })
-export const subMore = payload => ({ type: 'subMore', payload })
-export const setName = payload => ({ type: 'name', payload })
+// action 相当于发布者
+import * as TYPES from './constants'
+
+export const addOne = payload => ({ type: TYPES.ADD_ONE, payload })
+export const subOne = payload => ({ type: TYPES.SUB_ONE, payload })
+export const addMore = payload => ({ type: TYPES.ADD_MORE, payload })
+export const subMore = payload => ({ type: TYPES.SUB_MORE, payload })
+export const setName = payload => ({ type: TYPES.SET_NAME, payload })
