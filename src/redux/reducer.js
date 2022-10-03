@@ -2,10 +2,13 @@
  * * reducer 相当于订阅者, 处理对应的 action
  * * reducer 函数签名: (preState, action) => new State
  * * reducer 是一个纯函数: 输入相同的值，总是会得到相同的结果。比如，数组中的 slice 就是纯函数，但是 splice 就不是。
+ * * combineReducers 接收多个 reducer 模块, 在使用时则需要在 useSelector 中返回 state.xxx
  */
 
-export const initialState = 100
-export default function reducer(state = initialState, action) {
+import { combineReducers } from 'redux'
+
+const initialMoney = 100
+function moneyReducer(state = initialMoney, action) {
     console.log(action)
     // 处理各种各样的action
     switch (action.type) {
@@ -22,3 +25,24 @@ export default function reducer(state = initialState, action) {
             return state
     }
 }
+
+const initialUser = {
+    name: 'zs',
+    age: ''
+}
+function userReducer(state = initialUser, action) {
+    if (action.type === 'name') {
+        return {
+            ...state,
+            name: action.payload
+        }
+    }
+    return state
+}
+
+const rootReducer = combineReducers({
+    moneyReducer,
+    userReducer
+})
+
+export default rootReducer
