@@ -1,4 +1,4 @@
-// action 相当于发布者
+// * action 相当于发布者 类比 vue 中 actions
 import * as TYPES from './constants'
 
 export const addOne = payload => ({ type: TYPES.ADD_ONE, payload })

@@ -1,5 +1,5 @@
 /**
- * * reducer 相当于订阅者, 处理对应的 action
+ * * reducer 相当于订阅者, 处理对应的 action, 类比 vue 中的 mutations
  * * reducer 函数签名: (preState, action) => new State
  * * reducer 是一个纯函数: 输入相同的值，总是会得到相同的结果。比如，数组中的 slice 就是纯函数，但是 splice 就不是。
  * * combineReducers 接收多个 reducer 模块, 在使用时则需要在 useSelector 中返回 state.xxx
