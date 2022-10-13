@@ -1,5 +1,6 @@
 import Money from './money'
 import User from './user'
+import Connect from './connect'
 // import Store from './redux/store'
 import { useSelector } from 'react-redux'
 
@@ -15,6 +16,8 @@ function App() {
             <br /> <br />
             <div style={{ marginBottom: 20 }}>user 名字叫： {user.name} </div>
             <User />
+            <br /> <hr />
+            <Connect />
         </div>
     )
 }

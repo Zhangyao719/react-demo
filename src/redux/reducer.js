@@ -29,7 +29,7 @@ function moneyReducer(state = initialMoney, action) {
 
 const initialUser = {
     name: 'zs',
-    age: ''
+    age: 18
 }
 function userReducer(state = initialUser, action) {
     if (action.type === TYPES.SET_NAME) {
